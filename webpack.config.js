@@ -1,4 +1,8 @@
-const path = require('path');
+const path = require('path'),
+    htmlPlugin = require('html-webpack-plugin'),
+    cleanPlugin = require('clean-webpack-plugin'),
+    build = 'build',
+    workboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -18,5 +22,14 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
     port: 8080
-  }
+  },
+  plugins: [
+    new workboxPlugin({
+      globDirectory: build,
+      globPatterns: ['**/*.{html,js}'],
+      swDest: path.join(build, 'sw.js'),
+      clientsClaim: true,
+      skipWaiting: true,
+    })  
+  ]
 };

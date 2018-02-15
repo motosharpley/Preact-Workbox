@@ -21,6 +21,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-preact": "^1.1.0",
     "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^2.11.1",
+    "workbox-webpack-plugin": "^2.1.2"
   }
 }
