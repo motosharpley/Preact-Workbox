@@ -1,7 +1,7 @@
-console.log('hello preact');
-import { h, render } from 'preact';
+import { h, render, } from 'preact';
+import App from './components/App'
 
-render (
-  <div>Hello Preact!</div>,
+render(
+  <App/>,
   document.getElementById('root')
-);
+)
