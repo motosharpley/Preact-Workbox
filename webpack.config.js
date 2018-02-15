@@ -1,6 +1,6 @@
 const path = require('path'),
     htmlPlugin = require('html-webpack-plugin'),
-    cleanPlugin = require('clean-webpack-plugin'),
+    
     build = 'build',
     workboxPlugin = require('workbox-webpack-plugin');
 
@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
     rules: 
@@ -24,6 +24,11 @@ module.exports = {
     port: 8080
   },
   plugins: [
+    
+    new htmlPlugin({
+      filename: 'index.html',
+      title: 'Get Started With Workbox For Webpack'
+    }),
     new workboxPlugin({
       globDirectory: build,
       globPatterns: ['**/*.{html,js}'],
@@ -33,3 +38,7 @@ module.exports = {
     })  
   ]
 };
+
+
+// cleanPlugin = require('clean-webpack-plugin'),
+// new cleanPlugin([build]),
